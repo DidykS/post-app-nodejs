@@ -1,6 +1,8 @@
 *,
 *::before,
 *::after {
+  padding: 0;
+  margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -37,5 +39,53 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #0d0d0d;
+  -webkit-box-shadow: 0 5px 22px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 22px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.nav__list--item:hover .nav__list--link {
+  background-color: #3137c9;
+  text-decoration: none;
+}
+
+.nav__list--link {
+  display: block;
+  padding: 13.5px;
+  font-size: 13px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
 }
 /*# sourceMappingURL=style.css.map */
