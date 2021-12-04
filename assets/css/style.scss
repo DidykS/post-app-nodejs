@@ -8,9 +8,9 @@ $red: #ed3024;
 $blue: #3137c9;
 
 // MAIN STYLES
-* {
-  padding: 0;
-  margin: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -42,5 +42,8 @@ ul {
 
 a {
   text-decoration: none;
-  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
