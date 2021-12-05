@@ -169,6 +169,9 @@ a {
   &__description {
     font-size: 14px;
     color: $gray;
+    max-height: 55px;
+    overflow: hidden;
+    margin-bottom: 10px;
   }
 
   &__footer {
@@ -257,4 +260,59 @@ a {
 // ERROR TITLE
 .error__title {
   font-size: 75px;
+}
+
+// FORM
+.form {
+  max-width: 500px;
+  width: 100%;
+
+  background-color: $secondary;
+  padding: 10px 20px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  & input,
+  textarea {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    width: 100%;
+
+    border: 0;
+    outline: none;
+
+    background-color: #0d0d0d;
+
+    color: $white;
+    font-size: 18px;
+  }
+
+  & textarea {
+    min-height: 150px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+
+    & input {
+      width: 150px;
+      text-transform: uppercase;
+      padding: 10px 15px;
+      cursor: pointer;
+
+      background: $blue;
+
+      &:hover {
+        background-color: darken($color: $blue, $amount: 10);
+      }
+    }
+  }
 }
