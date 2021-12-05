@@ -1,0 +1,19 @@
+{
+  "name": "post-app-nodejs",
+  "version": "1.0.0",
+  "description": "nodejs application ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DidykS/post-app-nodejs.git"
+  },
+  "author": "DidykS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DidykS/post-app-nodejs/issues"
+  },
+  "homepage": "https://github.com/DidykS/post-app-nodejs#readme"
+}
