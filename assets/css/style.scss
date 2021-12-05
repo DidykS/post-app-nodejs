@@ -64,6 +64,20 @@ a {
   padding: 0 15px;
 }
 
+// WRAPPER
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.error {
+    text-align: center;
+    font-size: 25px;
+  }
+}
+
 // HEADER
 .header {
   display: flex;
@@ -107,15 +121,6 @@ a {
       transition: background-color 0.2s linear;
     }
   }
-}
-
-// INTRO
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 // POSTS
@@ -247,4 +252,9 @@ a {
   &:hover {
     opacity: 1;
   }
+}
+
+// ERROR TITLE
+.error__title {
+  font-size: 75px;
 }
