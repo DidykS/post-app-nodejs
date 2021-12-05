@@ -97,7 +97,7 @@ a:hover {
   transition: background-color 0.2s linear;
 }
 
-.intro {
+.wrapper {
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -112,7 +112,6 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 20px;
 }
 
 .posts {
