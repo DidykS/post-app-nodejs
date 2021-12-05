@@ -109,7 +109,13 @@ a {
   }
 }
 
-// MAIN
-.main {
-  padding: 100px 0 80px 0;
+// INTRO
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
 }
