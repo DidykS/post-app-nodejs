@@ -27,10 +27,6 @@ body {
           flex-direction: column;
 }
 
-footer {
-  margin-top: auto;
-}
-
 h1,
 h2,
 h3,
@@ -99,5 +95,9 @@ a:hover {
   font-weight: 500;
   -webkit-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
+}
+
+.main {
+  padding: 100px 0 80px 0;
 }
 /*# sourceMappingURL=style.css.map */
