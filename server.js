@@ -17,12 +17,16 @@ const PORT = 3000
 const createPath = (page) =>
   path.resolve(__dirname, 'html-views', `${page}.html`)
 
+// initialization of ejs
+app.set('view engine', 'ejs')
+
 // middlewares
 // middleware for styles
 app.use(express.static(__dirname))
 
 // morgan logger middleware
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+
 // main route
 app.get('/', (request, response) => {
   response.sendFile(createPath('index'))
