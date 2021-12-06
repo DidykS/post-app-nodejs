@@ -14,6 +14,10 @@ const PORT = 3000
 const createPath = (page) =>
   path.resolve(__dirname, 'html-views', `${page}.html`)
 
+// middlewares
+// middleware for styles
+app.use(express.static(__dirname))
+
 // main route
 app.get('/', (request, response) => {
   response.sendFile(createPath('index'))
