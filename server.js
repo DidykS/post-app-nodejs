@@ -4,6 +4,9 @@ const express = require('express')
 // import path
 const path = require('path')
 
+// імпорт morgan
+const morgan = require('morgan')
+
 // initialization of server
 const app = express()
 
@@ -18,6 +21,8 @@ const createPath = (page) =>
 // middleware for styles
 app.use(express.static(__dirname))
 
+// morgan logger middleware
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 // main route
 app.get('/', (request, response) => {
   response.sendFile(createPath('index'))
