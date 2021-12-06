@@ -34,7 +34,7 @@ app.get('/posts', (request, response) => {
 })
 
 // post route
-app.get('/posts/id:', (request, response) => {
+app.get('/posts/:id', (request, response) => {
   response.sendFile(createPath('post'))
 })
 
