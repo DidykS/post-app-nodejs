@@ -18,14 +18,17 @@ app.get('/', (request, response) => {
   response.send('Hello Worlds')
 })
 
+// posts route
 app.get('/posts', (request, response) => {
   response.send('Posts page')
 })
 
+// post route
 app.get('/posts/id:', (request, response) => {
   response.send('Post page')
 })
 
+// error midleware
 app.use((request, response) => {
   response.status(404).send('Error')
 })
