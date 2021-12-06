@@ -28,27 +28,36 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 // main route
 app.get('/', (request, response) => {
-  response.render(createPath('index'))
+  const title = 'Home'
+
+  response.render(createPath('index'), { title })
 })
 
 // posts route
 app.get('/posts', (request, response) => {
-  response.render(createPath('posts'))
+  const title = 'Posts'
+
+  response.render(createPath('posts'), { title })
 })
 
 // post route
 app.get('/posts/:id', (request, response) => {
-  response.render(createPath('post'))
+  const title = 'Post'
+
+  response.render(createPath('post'), { title })
 })
 
 // add post route
 app.get('/add-post', (request, response) => {
-  response.render(createPath('add-post'))
+  const title = 'Add post'
+  response.render(createPath('add-post'), { title })
 })
 
 // error midleware
 app.use((request, response) => {
-  response.status(404).render(createPath('error'))
+  const title = 'Error'
+
+  response.status(404).render(createPath('error'), { title })
 })
 
 // start server
