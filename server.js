@@ -10,15 +10,14 @@ const morgan = require('morgan')
 // initialization of server
 const app = express()
 
+// initialization of ejs
+app.set('view engine', 'ejs')
+
 // create PORT
 const PORT = 3000
 
 // createPath function
-const createPath = (page) =>
-  path.resolve(__dirname, 'html-views', `${page}.html`)
-
-// initialization of ejs
-app.set('view engine', 'ejs')
+const createPath = (page) => path.resolve(__dirname, 'views', `${page}.ejs`)
 
 // middlewares
 // middleware for styles
@@ -29,27 +28,27 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 // main route
 app.get('/', (request, response) => {
-  response.sendFile(createPath('index'))
+  response.render(createPath('index'))
 })
 
 // posts route
 app.get('/posts', (request, response) => {
-  response.sendFile(createPath('posts'))
+  response.render(createPath('posts'))
 })
 
 // post route
 app.get('/posts/:id', (request, response) => {
-  response.sendFile(createPath('post'))
+  response.render(createPath('post'))
 })
 
 // add post route
 app.get('/add-post', (request, response) => {
-  response.sendFile(createPath('add-post'))
+  response.render(createPath('add-post'))
 })
 
 // error midleware
 app.use((request, response) => {
-  response.status(404).sendFile(createPath('error'))
+  response.status(404).render(createPath('error'))
 })
 
 // start server
