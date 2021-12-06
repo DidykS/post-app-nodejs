@@ -36,15 +36,38 @@ app.get('/', (request, response) => {
 // posts route
 app.get('/posts', (request, response) => {
   const title = 'Posts'
+  const posts = [
+    {
+      id: '1',
+      text: 'Тестовий вивід посту з сервера',
+      title: 'Як писати код швидко та безболісно?',
+      date: '30.11.2021',
+      subject: 'створення сайтів',
+    },
+    {
+      id: '2',
+      text: 'Тестовий вивід посту з сервера',
+      title: 'Як стати NodeJS розробником',
+      date: '12.11.2021',
+      subject: 'навчання',
+    },
+  ]
 
-  response.render(createPath('posts'), { title })
+  response.render(createPath('posts'), { title, posts })
 })
 
 // post route
 app.get('/posts/:id', (request, response) => {
   const title = 'Post'
+  const post = {
+    id: '1',
+    text: 'Тестовий вивід посту з сервера',
+    title: 'Як писати код швидко та безболісно?',
+    date: '30.11.2021',
+    subject: 'створення сайтів',
+  }
 
-  response.render(createPath('post'), { title })
+  response.render(createPath('post'), { title, post })
 })
 
 // add post route
