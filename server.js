@@ -8,24 +8,16 @@ const app = express()
 const PORT = 3000
 
 // main route
-app.get('/', (request, response) => {
-  response.send('Hello Worlds')
-})
+app.get('/', (request, response) => {})
 
 // posts route
-app.get('/posts', (request, response) => {
-  response.send('Posts page')
-})
+app.get('/posts', (request, response) => {})
 
 // post route
-app.get('/posts/id:', (request, response) => {
-  response.send('Post page')
-})
+app.get('/posts/id:', (request, response) => {})
 
 // error midleware
-app.use((request, response) => {
-  response.status(404).send('Error')
-})
+app.use((request, response) => {})
 
 // start server
 app.listen(PORT, (error) => {
