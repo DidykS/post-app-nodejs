@@ -23,25 +23,30 @@ const PORT = 3000
 const createPath = (page) => path.resolve(__dirname, 'views', `${page}.ejs`)
 
 // work with multer
-const storage = multer.diskStorage({
-  destination(request, file, callback) {
-    callback(null, '../assets/images')
-  },
-  filename(request, file, callback) {
-    callback(null, new Date().toISOString + '-' + file.originalname)
-  },
-})
-// validate images
-const types = ['image/png', 'image/jpeg', 'image/jpg']
-const fileFilter = (request, file, callback) => {
-  if (types.includes(file.mimetype)) {
-    callback(null, true)
-  } else {
-    callback(null, false)
-  }
-}
+// const storage = multer.diskStorage({
+//   destination(request, file, callback) {
+//     callback(null, 'assets/images')
+//   },
+//   filename(request, file, callback) {
+//     callback(null, new Date().toISOString + '-' + file.originalname)
+//   },
+// })
+// // validate images
+// // const types = ['image/png', 'image/jpeg', 'image/jpg']
+// // const fileFilter = (request, file, callback) => {
+// //   if (types.includes(file.mimetype)) {
+// //     callback(null, true)
+// //   } else {
+// //     callback(null, false)
+// //   }
+// // }
 
-const upload = multer({ storage, fileFilter })
+// const upload = multer({
+//   storage: storage,
+//   limits: {
+//     fieldSize: 1024 * 1024 * 3,
+//   },
+// })
 
 // middlewares
 // middleware for styles
@@ -51,7 +56,7 @@ app.use(express.static(__dirname))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 // middleware for work with method POST
-app.use(express.urlencoded({ extends: false }))
+app.use(express.urlencoded({ extended: false }))
 
 // main route
 app.get('/', (request, response) => {
