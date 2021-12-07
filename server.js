@@ -23,30 +23,28 @@ const PORT = 3000
 const createPath = (page) => path.resolve(__dirname, 'views', `${page}.ejs`)
 
 // work with multer
-// const storage = multer.diskStorage({
-//   destination(request, file, callback) {
-//     callback(null, 'assets/images')
-//   },
-//   filename(request, file, callback) {
-//     callback(null, new Date().toISOString + '-' + file.originalname)
-//   },
-// })
-// // validate images
-// // const types = ['image/png', 'image/jpeg', 'image/jpg']
-// // const fileFilter = (request, file, callback) => {
-// //   if (types.includes(file.mimetype)) {
-// //     callback(null, true)
-// //   } else {
-// //     callback(null, false)
-// //   }
-// // }
+const storage = multer.diskStorage({
+  destination(request, file, callback) {
+    callback(null, './assets/images')
+  },
+  filename(request, file, callback) {
+    callback(null, Date.now() + '-' + file.originalname)
+  },
+})
+// validate images
+const types = ['image/png', 'image/jpeg', 'image/jpg']
+const fileFilter = (request, file, callback) => {
+  if (types.includes(file.mimetype)) {
+    callback(null, true)
+  } else {
+    callback(null, false)
+  }
+}
 
-// const upload = multer({
-//   storage: storage,
-//   limits: {
-//     fieldSize: 1024 * 1024 * 3,
-//   },
-// })
+const upload = multer({
+  storage,
+  fileFilter,
+})
 
 // middlewares
 // middleware for styles
@@ -109,8 +107,8 @@ app.get('/add-post', (request, response) => {
 })
 
 // add post route, method post
-app.post('/add-post', (request, response) => {
-  console.log(request.body)
+app.post('/add-post', upload.single('image'), (request, response) => {
+  console.log(request.file)
 })
 
 // error midleware
