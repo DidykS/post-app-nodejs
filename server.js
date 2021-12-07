@@ -22,12 +22,36 @@ const PORT = 3000
 // createPath function
 const createPath = (page) => path.resolve(__dirname, 'views', `${page}.ejs`)
 
+// work with multer
+const storage = multer.diskStorage({
+  destination(request, file, callback) {
+    callback(null, '../assets/images')
+  },
+  filename(request, file, callback) {
+    callback(null, new Date().toISOString + '-' + file.originalname)
+  },
+})
+// validate images
+const types = ['image/png', 'image/jpeg', 'image/jpg']
+const fileFilter = (request, file, callback) => {
+  if (types.includes(file.mimetype)) {
+    callback(null, true)
+  } else {
+    callback(null, false)
+  }
+}
+
+const upload = multer({ storage, fileFilter })
+
 // middlewares
 // middleware for styles
 app.use(express.static(__dirname))
 
 // morgan logger middleware
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+
+// middleware for work with method POST
+app.use(express.urlencoded({ extends: false }))
 
 // main route
 app.get('/', (request, response) => {
@@ -77,6 +101,11 @@ app.get('/posts/:id', (request, response) => {
 app.get('/add-post', (request, response) => {
   const title = 'Add post'
   response.render(createPath('add-post'), { title })
+})
+
+// add post route, method post
+app.post('/add-post', (request, response) => {
+  console.log(request.body)
 })
 
 // error midleware
