@@ -8,6 +8,7 @@ const path = require('path')
 const morgan = require('morgan')
 
 // import multer
+const multer = require('multer')
 
 // initialization of server
 const app = express()
