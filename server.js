@@ -22,6 +22,16 @@ app.set('view engine', 'ejs')
 // create PORT
 const PORT = 3000
 
+// create db
+const db =
+  'mongodb+srv://DidykS:ckfdsr.hfy2201@cluster0.fjydt.mongodb.net/appPost?retryWrites=true&w=majority'
+
+// conntect with mongoDB
+mongoose
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((resolve) => console.log('Connected to DB'))
+  .catch((error) => console.log(error))
+
 // createPath function
 const createPath = (page) => path.resolve(__dirname, 'views', `${page}.ejs`)
 
