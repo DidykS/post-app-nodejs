@@ -13,6 +13,9 @@ const multer = require('multer')
 // import mongoose
 const mongoose = require('mongoose')
 
+// import Post model
+const Post = require('./models/post')
+
 // initialization of server
 const app = express()
 
