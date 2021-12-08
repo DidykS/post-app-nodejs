@@ -10,6 +10,9 @@ const morgan = require('morgan')
 // import multer
 const multer = require('multer')
 
+// import fs
+const fs = require('fs')
+
 // import mongoose
 const mongoose = require('mongoose')
 
