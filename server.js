@@ -100,12 +100,21 @@ app.get('/posts/:id', (request, response) => {
     .catch((error) => response.render(createPath('error'), { title: 'Error' }))
 })
 
+// delete post
 app.delete('/posts/:id', (request, response) => {
   const title = 'Post'
 
   Post.findByIdAndDelete(request.params.id)
-    .then((result) => response.sendStatus(200))
-    .catch((error) => response.render(createPath('error'), { title: 'Error' }))
+    .then((result) => {
+      response.sendStatus(200)
+
+      fs.unlink(`./assets/images/${result.image}`, (error) => {
+        if (error) {
+          console.log(error)
+        }
+      })
+    })
+    .catch((error) => response.render(createPath('error'), { title }))
 })
 
 // add post route
