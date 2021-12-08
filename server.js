@@ -97,6 +97,14 @@ app.get('/posts/:id', (request, response) => {
     .catch((error) => response.render(createPath('error'), { title: 'Error' }))
 })
 
+app.delete('/posts/:id', (request, response) => {
+  const title = 'Post'
+
+  Post.findByIdAndDelete(request.params.id)
+    .then((result) => response.sendStatus(200))
+    .catch((error) => response.render(createPath('error'), { title: 'Error' }))
+})
+
 // add post route
 app.get('/add-post', (request, response) => {
   const title = 'Add post'
