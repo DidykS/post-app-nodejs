@@ -145,6 +145,10 @@ a:hover {
   margin: -25px -25px 25px;
 }
 
+.post--open .post__header {
+  height: auto;
+}
+
 .post__img {
   display: block;
   position: absolute;

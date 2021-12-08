@@ -151,6 +151,12 @@ a {
     }
   }
 
+  &--open {
+    .post__header {
+      height: auto;
+    }
+  }
+
   &__img {
     display: block;
 
