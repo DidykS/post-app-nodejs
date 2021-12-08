@@ -175,8 +175,6 @@ a:hover {
 .post__description {
   font-size: 14px;
   color: #d2d2d2;
-  max-height: 55px;
-  overflow: hidden;
   margin-bottom: 10px;
 }
 

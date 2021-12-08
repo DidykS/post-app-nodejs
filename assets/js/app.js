@@ -10,3 +10,12 @@ document.addEventListener('click', (e) => {
     })
   }
 })
+
+// text-overflow
+const strings = document.querySelectorAll('#description')
+strings.forEach((item) => {
+  if (item.innerHTML.length > 500) {
+    item.innerHTML =
+      item.innerHTML.substring(9, item.innerHTML.length - 250) + '...'
+  }
+})
