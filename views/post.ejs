@@ -21,7 +21,9 @@
 
           <ul class="post__data">
             <li class="post__data--item">
-              <time datetime="2021-02-13"><%= post.date %></time>
+              <time datetime="2021-02-13"
+                ><%= post.createdAt.toLocaleDateString() %></time
+              >
             </li>
             <li class="post__data--item"><%= post.subject %></li>
           </ul>

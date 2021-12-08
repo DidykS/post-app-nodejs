@@ -91,15 +91,10 @@ app.get('/posts', (request, response) => {
 // post route
 app.get('/posts/:id', (request, response) => {
   const title = 'Post'
-  const post = {
-    id: '1',
-    text: 'Тестовий вивід посту з сервера',
-    title: 'Як писати код швидко та безболісно?',
-    date: '30.11.2021',
-    subject: 'створення сайтів',
-  }
 
-  response.render(createPath('post'), { title, post })
+  Post.findById(request.params.id)
+    .then((post) => response.render(createPath('post'), { post, title }))
+    .catch((error) => response.render(createPath('error'), { title: 'Error' }))
 })
 
 // add post route
