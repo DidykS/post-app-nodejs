@@ -10,9 +10,9 @@
       <section class="post post--open">
         <div class="post__actions">
           <a href="/posts">return back</a>
-          <button class="btn-delete">
+          <button class="btn-delete" data-id="<%= post.id %>">
             delete post
-            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-trash-alt" data-id="<%= post.id %>"></i>
           </button>
         </div>
 
