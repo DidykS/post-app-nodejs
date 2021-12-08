@@ -6,14 +6,14 @@
 
     <div class="posts">
       <div class="container">
-        <% if (posts.length) { %> <% posts.forEach(({ id, title, date, text,
-        subject }) => { %>
+        <% if (posts.length) { %> <% posts.forEach(({ id, title, createdAt,
+        text, subject, image }) => { %>
         <section class="post">
           <div class="post__header post__header--preview">
             <a href="/posts/<%= id %>">
               <img
                 class="post__img"
-                src="http://placehold.it/750x350"
+                src="../assets/images/<%= image %>"
                 alt="..."
               />
             </a>
@@ -27,7 +27,9 @@
           <div class="post__footer">
             <ul class="post__data">
               <li class="post__data--item">
-                <time datetime="2021-02-13"><%= date %></time>
+                <time datetime="2021-02-13"
+                  ><%= createdAt.toLocaleDateString() %></time
+                >
               </li>
               <li class="post__data--item"><%= subject %></li>
             </ul>

@@ -82,24 +82,10 @@ app.get('/', (request, response) => {
 // posts route
 app.get('/posts', (request, response) => {
   const title = 'Posts'
-  const posts = [
-    {
-      id: '1',
-      text: 'Тестовий вивід посту з сервера',
-      title: 'Як писати код швидко та безболісно?',
-      date: '30.11.2021',
-      subject: 'створення сайтів',
-    },
-    {
-      id: '2',
-      text: 'Тестовий вивід посту з сервера',
-      title: 'Як стати NodeJS розробником',
-      date: '12.11.2021',
-      subject: 'навчання',
-    },
-  ]
 
-  response.render(createPath('posts'), { title, posts })
+  Post.find()
+    .then((posts) => response.render(createPath('posts'), { posts, title }))
+    .catch((error) => response.render(createPath('error'), { title: 'Error' }))
 })
 
 // post route
@@ -124,7 +110,19 @@ app.get('/add-post', (request, response) => {
 
 // add post route, method post
 app.post('/add-post', upload.single('image'), (request, response) => {
-  console.log(request.body)
+  const { title, text, subject } = request.body
+
+  const post = new Post({
+    title,
+    text,
+    subject,
+    image: request.file.filename,
+  })
+
+  post
+    .save()
+    .then((result) => response.redirect('/posts'))
+    .catch((error) => response.render(createPath('error'), { title: 'Error' }))
 })
 
 // error midleware
