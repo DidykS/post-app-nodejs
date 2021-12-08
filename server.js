@@ -124,7 +124,7 @@ app.get('/add-post', (request, response) => {
 
 // add post route, method post
 app.post('/add-post', upload.single('image'), (request, response) => {
-  console.log(request.file)
+  console.log(request.body)
 })
 
 // error midleware
