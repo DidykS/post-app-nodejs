@@ -10,6 +10,9 @@ const morgan = require('morgan')
 // import multer
 const multer = require('multer')
 
+// import mongoose
+const mongoose = require('mongoose')
+
 // initialization of server
 const app = express()
 
