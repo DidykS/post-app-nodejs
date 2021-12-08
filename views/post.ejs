@@ -3,36 +3,36 @@
   <%- include('./partials/head') %>
   <body>
     <%- include('./partials/header') %>
-  </body>
 
-  <div class="wrapper">
-    <div class="container">
-      <section class="post post--open">
-        <div class="post__actions">
-          <a href="/posts">return back</a>
-          <button class="btn-delete" data-id="<%= post.id %>">
-            delete post
-            <i class="fas fa-trash-alt" data-id="<%= post.id %>"></i>
-          </button>
-        </div>
+    <div class="wrapper">
+      <div class="container">
+        <section class="post post--open">
+          <div class="post__actions">
+            <a href="/posts">return back</a>
+            <button class="btn-delete" data-id="<%= post.id %>">
+              delete post
+              <i class="fas fa-trash-alt" data-id="<%= post.id %>"></i>
+            </button>
+          </div>
 
-        <div class="post__header">
-          <h1 class="post__title"><%= post.title %></h1>
+          <div class="post__header">
+            <h1 class="post__title"><%= post.title %></h1>
 
-          <ul class="post__data">
-            <li class="post__data--item">
-              <time datetime="2021-02-13"
-                ><%= post.createdAt.toLocaleDateString() %></time
-              >
-            </li>
-            <li class="post__data--item"><%= post.subject %></li>
-          </ul>
-        </div>
+            <ul class="post__data">
+              <li class="post__data--item">
+                <time datetime="2021-02-13"
+                  ><%= post.createdAt.toLocaleDateString() %></time
+                >
+              </li>
+              <li class="post__data--item"><%= post.subject %></li>
+            </ul>
+          </div>
 
-        <div class="post__content">
-          <div class="post__text"><%= post.text %></div>
-        </div>
-      </section>
+          <div class="post__content">
+            <div class="post__text"><%= post.text %></div>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>
+  </body>
 </html>
