@@ -7,37 +7,84 @@
     <div class="container">
       <div class="wrapper">
         <form
-          id="post-form"
           class="form"
+          id="form"
           method="post"
           action="/add-post"
           enctype="multipart/form-data"
         >
-          <div class="form__info">
-            <label
-              >Post Title
-              <input type="text" name="title" />
-            </label>
-            <label
-              >Subject
-              <input type="text" name="subject" />
-            </label>
+          <div class="form__group">
+            <input
+              class="form__control"
+              type="text"
+              placeholder="Post title"
+              name="title"
+            />
+            <span class="form__line"></span>
           </div>
-          <div class="form__file">
-            <label for="image">Upload image</label>
-            <input type="file" name="image" id="image" />
+
+          <div class="form__group">
+            <input
+              class="form__control"
+              type="text"
+              placeholder="Post subject"
+              name="subject"
+            />
+            <span class="form__line"></span>
           </div>
-          <div class="form__text">
-            <label
-              >Post Text
-              <textarea name="text"></textarea>
-            </label>
+
+          <div class="form__group">
+            <input
+              class="form__control form__control--file"
+              type="file"
+              id="image"
+              name="image"
+            />
+            <label for="image" class="form__control--label">Upoad image </label>
+            <span class="form__line"></span>
           </div>
-          <div class="form__button">
-            <input type="submit" value="Submit" />
+
+          <div class="form__group">
+            <textarea
+              class="form__control form__control--textarea"
+              name="text"
+              id="area"
+              placeholder="Post content"
+            ></textarea>
+            <span class="form__line"></span>
+          </div>
+
+          <div class="form__footer">
+            <div class="form__group">
+              <button class="btn btn--blue btn--rounded btm--sm" type="submit">
+                Add post
+              </button>
+            </div>
           </div>
         </form>
       </div>
     </div>
+
+    <script>
+      const textarea = document.querySelector('textarea')
+
+      let textareaH = textarea.offsetHeight
+      textarea.addEventListener('input', function (e) {
+        let target = e.target
+
+        target.style.height = textareaH + 'px'
+        target.style.height = target.scrollHeight + 'px'
+      })
+    </script>
+
+    <script>
+      const image = document.querySelector('#image')
+      const label = document.querySelector('.form__control--label')
+
+      image.addEventListener('change', () => {
+        label.innerHTML = image.files[0].name
+        label.style.color = 'white'
+      })
+    </script>
   </body>
 </html>
