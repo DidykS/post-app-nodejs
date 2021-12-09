@@ -11,11 +11,11 @@ document.addEventListener('click', (e) => {
   }
 })
 
-// text-overflow
-const strings = document.querySelectorAll('#description')
-strings.forEach((item) => {
-  if (item.innerHTML.length > 500) {
-    item.innerHTML =
-      item.innerHTML.substring(9, item.innerHTML.length - 250) + '...'
-  }
+// text-overflow, Clamp.js
+var truncate = document.querySelectorAll('#description')
+truncate.forEach((item) => {
+  $clamp(item, {
+    clamp: 4,
+    useNativeClamp: false,
+  })
 })
