@@ -13,22 +13,21 @@ const postRoutes = require('./routes/post-routes')
 // import createPath
 const createPath = require('./helpers/create-path')
 
+// import dotenv
+require('dotenv').config()
+
 // initialization of server
 const app = express()
 
 // initialization of ejs
 app.set('view engine', 'ejs')
 
-// create PORT
-const PORT = 3000
-
-// create db
-const db =
-  'mongodb+srv://DidykS:ckfdsr.hfy2201@cluster0.fjydt.mongodb.net/appPost?retryWrites=true&w=majority'
-
 // conntect with mongoDB
 mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((resolve) => console.log('Connected to DB'))
   .catch((error) => console.log(error))
 
@@ -60,6 +59,6 @@ app.use((request, response) => {
 })
 
 // start server
-app.listen(PORT, (error) => {
+app.listen(process.env.PORT, (error) => {
   error ? console.log(error) : console.log(`Listening port ${PORT}`)
 })
