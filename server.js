@@ -83,6 +83,7 @@ app.get('/', (request, response) => {
 })
 
 // posts routes
+app.use(postRoutes)
 
 // error midleware
 app.use((request, response) => {
