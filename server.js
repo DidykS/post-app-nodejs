@@ -38,9 +38,6 @@ mongoose
   .then((resolve) => console.log('Connected to DB'))
   .catch((error) => console.log(error))
 
-// createPath function
-const createPath = (page) => path.resolve(__dirname, 'views', `${page}.ejs`)
-
 // work with multer
 const storage = multer.diskStorage({
   destination(request, file, callback) {
