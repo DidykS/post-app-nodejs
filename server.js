@@ -60,5 +60,5 @@ app.use((request, response) => {
 
 // start server
 app.listen(process.env.PORT, (error) => {
-  error ? console.log(error) : console.log(`Listening port ${PORT}`)
+  error ? console.log(error) : console.log(`Listening port ${process.env.PORT}`)
 })
