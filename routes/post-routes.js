@@ -2,6 +2,12 @@
 const express = require('express')
 // import Post model
 const Post = require('../models/post')
+// import createPath
+const createPath = require('../helpers/create-path')
+// import fs
+const fs = require('fs')
+// import upload
+const upload = require('../helpers/upload')
 // create router
 const router = express.Router()
 

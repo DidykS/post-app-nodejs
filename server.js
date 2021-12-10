@@ -1,23 +1,17 @@
 // import express
 const express = require('express')
 
-// import path
-const path = require('path')
-
 // імпорт morgan
 const morgan = require('morgan')
-
-// import multer
-const multer = require('multer')
-
-// import fs
-const fs = require('fs')
 
 // import mongoose
 const mongoose = require('mongoose')
 
 // import post-routes
 const postRoutes = require('./routes/post-routes')
+
+// import createPath
+const createPath = require('./helpers/create-path')
 
 // initialization of server
 const app = express()
@@ -37,30 +31,6 @@ mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((resolve) => console.log('Connected to DB'))
   .catch((error) => console.log(error))
-
-// work with multer
-const storage = multer.diskStorage({
-  destination(request, file, callback) {
-    callback(null, './assets/images')
-  },
-  filename(request, file, callback) {
-    callback(null, Date.now() + '-' + file.originalname)
-  },
-})
-// validate images
-const types = ['image/png', 'image/jpeg', 'image/jpg']
-const fileFilter = (request, file, callback) => {
-  if (types.includes(file.mimetype)) {
-    callback(null, true)
-  } else {
-    callback(null, false)
-  }
-}
-
-const upload = multer({
-  storage,
-  fileFilter,
-})
 
 // middlewares
 // middleware for styles
